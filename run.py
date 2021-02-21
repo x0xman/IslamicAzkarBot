@@ -67,10 +67,10 @@ def TelegramAPI( api_token , chat_id , message ):
 
 """ argparse ->  Argparser"""
 def Args():
-    Argparser.add_argument('-add',help="-a islamicazkar.txt")
-    Argparser.add_argument('-get', help="-get start ")
-    Argparser.add_argument('-random','--random' , help=" --random start ")
-    Argparser.add_argument('-sendmessage','--sendmessage' , help="'--sendmessage start' | we will send message to chat id  ")
+    Argparser.add_argument('-add',help=" -> add new data in database ")
+    Argparser.add_argument('-get', help=" -> get all data from database ")
+    Argparser.add_argument('-random' , help=" -> get random data from database ")
+    Argparser.add_argument('-sendmessage' , help=" -> we will send message to chat id  ")
     return Argparser.parse_args()
 
 
