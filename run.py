@@ -30,7 +30,7 @@ def loadString():
 """ 
    @func: -> getTypeStorage
    @param: -> None
-   @decription: -> Get Type of Storge  
+   @decription: -> Get Types of Storge  
 """
 def getTypeStorage():
     if loadString()['Type'] == 'db':
