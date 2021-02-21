@@ -4,7 +4,7 @@
     <img src="https://i.ibb.co/ZMp3t7P/51d3aa97c980e088ea4f42f1278fbd7c.png" alt="Logo" width="50%" height="50%">
   </a>
 
-  <h3 align="center">Islamic Azkar - Telegram Bot</h3>
+  <h3 align="center"> [ Islamic Azkar - Telegram Bot ] </h3>
 
   <p align="center">
     Islamic Azkar Telegram Bot , The bot will be send zekr to your group chat Every 5 hours it will send a message to your chat_id
@@ -43,7 +43,7 @@
               {
                   "api_token":"YourApiToken",
                   "chat_id":"YourChatid",
-                  "Type":"YourChatid"
+                  "Type":"json"
               }
            ```
 ## Usage : 
