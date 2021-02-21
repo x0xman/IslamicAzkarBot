@@ -2,11 +2,7 @@
 from database import *
 import json
 import argparse
-try:
-   import requests
-except ImportError:
-   print (" [-] Install requests -> pip install requests [-]  ")
-
+import requests
 
 """
    - Functions:
