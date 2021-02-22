@@ -23,7 +23,7 @@
    `git clone https://github.com/x0xman/IslamicAzkarBot.git`
 
 ## requirements :
-   - python2 or python3
+   - python3
    - install libraries in python  : `pip install -r requirements.txt`
    - change `api_token` in `config.json` to your "token"
    - change `chat_id` in `config.json` to your "chat_id"
