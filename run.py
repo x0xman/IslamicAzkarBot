@@ -6,8 +6,7 @@ import requests
 
 """
    - Functions:
-
-      :@loadString
+      :@loadStrings
       :@getTypeStorage
       :@getTokens
       :@TelegramAPI
@@ -18,12 +17,12 @@ Argparser = argparse.ArgumentParser()
 
 try:
     Config = open("config.json","r").read()
-except:
+except FileNotFoundError:
     print( "[-] Error -> We Did Not Find -> 'config.json' [-] " )
 
 
-""" - Load String from File """
-def loadString():
+""" - Load Strings from Json file """
+def loadStrings():
     return json.loads(Config)
 
 
@@ -33,7 +32,7 @@ def loadString():
    @decription: -> Get Types of Storge  
 """
 def getTypeStorage():
-    if loadString()['Type'] == 'db':
+    if loadStrings()['Type'] == 'db':
        return True
     else:
        return False
@@ -45,8 +44,8 @@ def getTypeStorage():
    @description: get token from 'config.js' to deal with telegram api 
 """
 def getTokens():
-    if loadString()['api_token']:
-       return loadString()['api_token'] , loadString()['chat_id']
+    if loadStrings()['api_token']:
+       return loadStrings()['api_token'] , loadStrings()['chat_id']
     else: 
        return "[-] Error -> We Did Not Find -> 'API Token' [-] "
 
@@ -114,4 +113,3 @@ def main():
 
 if __name__ == '__main__':
    main()
-
