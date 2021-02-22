@@ -119,7 +119,7 @@ def main():
        elif getArgparser.cronjob:
             CronJob = CronTab(user='root')
             Job = CronJob.new( command = "/usr/bin/python3 " + getPath() + "/run.py -sendmessage start")
-            Job.hour.every(1)
+            Job.hour.every(5)
             CronJob.write()
 
     except:
