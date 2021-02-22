@@ -96,6 +96,7 @@ def main():
                TelegramAPI(getTokens()[0] , getTokens()[1] , getRandomdata()[0])
 
             else:
+               
                with open("db/IslamicAzkar.json" , "r" , encoding="UTF-8") as ISLAMICAZKAR:
                     READINGISLAMICAZKAR = ISLAMICAZKAR.read()
                     RandomNumber = random.randint( 0 , 274 ) # You Should Change this number if you add new data
@@ -104,6 +105,7 @@ def main():
                     zekrionAzkar = JSONLOADS[RandomNumber]['zekr']
                     PatternWords = f"{categoryAzkar}\n\n{zekrionAzkar}" 
                     TelegramAPI(getTokens()[0] , getTokens()[1] , PatternWords)
+                     
        elif getArgparser.get:
             print(getAllData())
 
