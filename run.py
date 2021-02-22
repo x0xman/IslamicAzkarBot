@@ -3,6 +3,11 @@ from database import *
 import json
 import argparse
 import requests
+from crontab import CronTab
+from pathlib import Path
+
+def getPath():
+    return str(Path(__file__).absolute().parent)
 
 """
    - Functions:
@@ -16,12 +21,13 @@ import requests
 Argparser = argparse.ArgumentParser()
 
 try:
-    Config = open("config.json","r").read()
+    ConfigPath = getPath() + "/config.json"
+    Config = open(ConfigPath,"r").read()
 except FileNotFoundError:
     print( "[-] Error -> We Did Not Find -> 'config.json' [-] " )
 
 
-""" - Load Strings from Json file """
+""" - Load String from File """
 def loadStrings():
     return json.loads(Config)
 
@@ -70,6 +76,7 @@ def Args():
     Argparser.add_argument('-get', help=" -> get all data from database ")
     Argparser.add_argument('-random' , help=" -> get random data from database ")
     Argparser.add_argument('-sendmessage' , help=" -> we will send message to chat id  ")
+    Argparser.add_argument('-cronjob' , help=" -> What is cronjob -> used for scheduling tasks  (-cronjob python2) or (-cronjob python3)")
     return Argparser.parse_args()
 
 
@@ -77,8 +84,10 @@ def Args():
 def main():
     try:
        getArgparser = Args()
-       if getArgparser.add or getArgparser.add == "file":            
-          ReadingFile = open("islamicazkar.txt" , "r" , encoding="UTF-8").read()
+       if getArgparser.add or getArgparser.add == "file":  
+
+          IslamicazkarPath = getPath() + "/islamicazkar.txt"          
+          ReadingFile = open(IslamicazkarPath , "r" , encoding="UTF-8").read()
           
           if insertData(ReadingFile):
              ConnectionDatabase.commit()
@@ -90,23 +99,28 @@ def main():
             print(getRandomdata())
             
        elif getArgparser.sendmessage:
-
             if getTypeStorage():
                TelegramAPI(getTokens()[0] , getTokens()[1] , getRandomdata()[0])
 
             else:
-               
-               with open("db/IslamicAzkar.json" , "r" , encoding="UTF-8") as ISLAMICAZKAR:
+               IslamicJsonPath = getPath() + "/db/IslamicAzkar.json" 
+               with open(IslamicJsonPath , "r" , encoding="UTF-8") as ISLAMICAZKAR:
                     READINGISLAMICAZKAR = ISLAMICAZKAR.read()
                     RandomNumber = random.randint( 0 , 274 ) # You Should Change this number if you add new data
                     JSONLOADS = json.loads(READINGISLAMICAZKAR)
                     categoryAzkar = JSONLOADS[RandomNumber]['category']
                     zekrionAzkar = JSONLOADS[RandomNumber]['zekr']
-                    PatternWords = f"{categoryAzkar}\n\n{zekrionAzkar}" 
+                    PatternWords = f"[ - {categoryAzkar} - ]\n{zekrionAzkar}" 
                     TelegramAPI(getTokens()[0] , getTokens()[1] , PatternWords)
-                     
+
        elif getArgparser.get:
             print(getAllData())
+       
+       elif getArgparser.cronjob:
+            CronJob = CronTab(user='root')
+            Job = CronJob.new( command = "/usr/bin/python3 " + getPath() + "/run.py -sendmessage start")
+            Job.hour.every(1)
+            CronJob.write()
 
     except:
        print(" [-] Try again [-] ")
