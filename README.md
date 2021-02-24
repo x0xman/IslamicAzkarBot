@@ -7,7 +7,7 @@
   <h3 align="center"> [ Islamic Azkar - Telegram Bot ] </h3>
 
   <p align="center">
-    Islamic Azkar Telegram Bot , The bot will be send zekr to your group chat Every 5 hours it will send a message to your chat_id
+    Islamic Azkar Telegram Bot , The bot sends "zikr" every 5 hours and if you add it to your group,it will send this kind of message every day
     <br />
     <a href="https://www.python.org/downloads/"><strong> Download Python »</strong></a>
     <br />
@@ -17,7 +17,7 @@
 </p>
 
 ## Islamic Azkar - Telegram Bot
-[+] Islamic Azkar Telegram Bot , The bot will be send zekr to your group chat Every 5 hours it will send a message to your chat_id 
+[+] Islamic Azkar Telegram Bot , The bot sends "zikr" every 5 hours and if you add it to your group,it will send this kind of message every day 
 
 ## Installation :rocket:
    `git clone https://github.com/x0xman/IslamicAzkarBot.git`
