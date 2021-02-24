@@ -3,8 +3,14 @@ from database import *
 import json
 import argparse
 import requests
+import sys
 from crontab import CronTab
 from pathlib import Path
+
+""" Check which version of python """
+if sys.version_info < ( 3 , 0 ) :
+    sys.stdout.write(" [ - ] You should have python-version 3.x [ - ] \n")
+    sys.exit(1)
 
 def getPath():
     return str(Path(__file__).absolute().parent)
@@ -27,7 +33,7 @@ except FileNotFoundError:
     print( "[-] Error -> We Did Not Find -> 'config.json' [-] " )
 
 
-""" - Load String from File """
+""" - Load String from Json File """
 def loadStrings():
     return json.loads(Config)
 
