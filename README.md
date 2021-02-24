@@ -25,6 +25,7 @@
 ## requirements :
    - python3
    - install libraries in python  : `pip install -r requirements.txt`
+   - You must run this command : `python3 run.py -cronjob python3`
    - change `api_token` in `config.json` to your "token"
    - change `chat_id` in `config.json` to your "chat_id"
    - change `Type` in `config.json` to `json` or `db`
