@@ -53,6 +53,7 @@
    python run.py -add islamicazkar.txt
    python run.py -random start
    python run.py -get start
+   python run.py -cronjob python3
   ```
 ## Options : 
   ```
