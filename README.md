@@ -64,4 +64,5 @@
       -get GET              -> get all data from database
       -random               -> get random data from database
       -sendmessage          -> will send message to chat id
+      -cronjob              -> What is cronjob -> used for scheduling tasks (-cronjob python3)
   ```
