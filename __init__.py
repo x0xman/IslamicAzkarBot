@@ -4,7 +4,7 @@ try:
    from database import * 
    from run import *
 except:
-   print(" [-] Error -> We Don't Find The Files [-] ")
+   print(" [-] Error -> We can't find a files [-] ")
     
 # __all__ = []
 """ Methods """
