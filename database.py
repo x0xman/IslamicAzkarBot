@@ -11,11 +11,10 @@
       
    - Database :
       - Name : Azkar.db
-        - Table : 
-          - IslamBot:
-            - cloums:
-                - id -> integer
-                - Azkar -> text
+        - Table : IslamBot
+                   - cloums:
+                     - id -> integer
+                     - Azkar -> text
 """
 import sqlite3 as db 
 import random 
